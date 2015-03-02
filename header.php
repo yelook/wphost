@@ -29,8 +29,8 @@
 </title>
 	<?php if (is_home())
 	{
-	$description = get_option('ye_description');
-	$keywords = get_option('ye_keywords');
+	$description = get_option('wph_description');
+	$keywords = get_option('wph_keywords');
 	}
 	elseif (is_category())
 	{
@@ -58,14 +58,26 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>" />
 <link rel="stylesheet" type="text/css"  href="<?php bloginfo('template_url'); ?>/css/font-awesome.min.css"/>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery-jrumble.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/responsiveslides.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/wphost.js"></script>
 <?php wp_head(); ?>
 </head>
 <body>
 <div class="topheader">
   <div class="wrap">
+	<span class="wplist"><a href="javascript::"><i class="fa fa-bars fa-2x"></i></a></span>
     <h1 class="logo"><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></h1>
+	<div class="search-click"><a href="javascript::"><i class="fa fa-search fa-2x"></i></a></div>
 	<?php wp_nav_menu(array('theme_location' => 'top-menu','menu'=>'top-menu','container_class' => 'topmenu','menu_class' =>'nav'));  ?>
+	</div>
+	  <div class="searchbox">
+	<div class="wrap">
+	<form method="get" id="search" onsubmit="location.href='<?php echo home_url('?s='); ?>' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/">
+	<input type="text" class="search" name="s" onblur="if(this.value=='')this.value='按回车键搜索...';" onfocus="if(this.value=='按回车键搜索...')this.value='';" value="按回车键搜索...">
+	</form>
+	</div>
+  </div>
   </div>
 </div>
 </div>

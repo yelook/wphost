@@ -36,14 +36,7 @@
 	<?php if ('open' == $post->comment_status) : ?>
 	<div id="respond" class="respond">
 		<h4 class="detitle">发布评论</h4>	
-		<div class="cancel-comment-reply">
-		<div id="real-avatar">
-	<?php if(isset($_COOKIE['comment_author_email_'.COOKIEHASH])) : ?>
-		<?php echo get_avatar($comment_author_email, 50);?>
-	<?php else :?>
-		<?php global $user_email;?><?php echo get_avatar($user_email, 50); ?>
-	<?php endif;?>
-		</div>	
+		<div class="cancel-comment-reply">	
 			<small><?php cancel_comment_reply_link(); ?></small>
 		</div>
 		<?php if ( get_option('comment_registration') && !$user_ID ) : ?>

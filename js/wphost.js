@@ -1,6 +1,31 @@
-$(document).ready(function(){$(".nav ul li:has(ul)").hover(function(){$(this).children("a").css({color:"#fff"});0<$(this).find("li").length&&$(this).children("ul").stop(!0,!0).slideDown(100)},function(){$(this).children("a").css({color:"#FFF"});$(this).children("ul").stop(!0,!0).slideUp("fast")});$(".toggle-search").click(function(){$(".toggle-search").toggleClass("active");$(".search-expand").fadeToggle(300)});$(".navbar-toggle").click(function(){$(".navbar-toggle").toggleClass("active");$(".navbar-collapse").toggle(300);$(".nav ul li ul").show()});$(".viewimg a").hover(function(){$(this).find(".shine").stop();$(this).find(".shine").css("background-position","-160px 0");$(this).find(".shine").animate({backgroundPosition:"160px"},500)},function(){});$(".totop").hide();$(window).scroll(function(){0<$(window).scrollTop()?$(".totop").fadeIn(200):$(".totop").fadeOut(200)});$(".totop").click(function(){$("html,body").animate({scrollTop:"0px"},400)});$(".slide_container").hover(function(){$(".slide_nav").fadeIn(200)},function(){$(".slide_nav").fadeOut(200)})
+$(document).ready(function(){
+
+$(".search-click").click(function(){$(".search-click").toggleClass("active");
+$(".searchbox").fadeToggle(300)});
+$(".wplist").click(function(){$(".nav").toggleClass("alternative");})
+
+$(".box").hover(function(){
+	$(this).find(".more").fadeIn(300)
+	},
+	function(){$(this).find(".more").fadeOut(300)});
+
+$(".gotop").hide();$(window).scroll(function(){0<$(window).scrollTop()?$(".gotop").fadeIn(200):$(".gotop").fadeOut(200)});$(".gotop").click(function(){$("html,body").animate({scrollTop:"0px"},400)});$(".slide_container").hover(function(){$(".slide_nav").fadeIn(200)},function(){$(".slide_nav").fadeOut(200)});
+
+
+$('.aboutauthor').jrumble({
+	rumbleEvent: 'hover'
+});
+$('.logo').jrumble({
+	rumbleEvent: 'hover'
 });
 
+});
+$(document).scroll(function (){
+if ($(document).scrollTop()==0){
+	$(".topheader").addClass('tou')
+}else{
+	$(".topheader").removeClass('tou')
+ }})
 // 评论分页
 $body=(window.opera)?(document.compatMode=="CSS1Compat"?$('html'):$('body')):$('html,body');
 $('.page_navi a').live('click', function(e){
@@ -28,9 +53,10 @@ $(function(){$("#slider").responsiveSlides({
 	auto:true,
 	pager:false,
 	nav:true,
-	speed:500,
+	speed:500,  
 	pauseControls:true,
-	pager:true,
-	manualControls:"auto",
 	namespace:"slide"
 	})});
+	
+
+	
