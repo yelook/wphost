@@ -7,8 +7,8 @@
       <ul>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <li>
-          <div class="random-read"><a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><img  class="sideico" src="<?php the_post_thumbnail('show',array( 'alt' => trim(strip_tags( $post->post_title )), 'title' => trim(strip_tags( $post->post_title )),'class' => 'icon')); ?>"></a>
-            <a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><?php the_title() ?></a></div>
+          <div class="random-read">
+            <a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><img class="sideico" src="<?php post_thumbnail_smallsrc() ?>"/><?php the_title() ?></a></div>
         </li>
         <?php endwhile ?>
         <?php endif ?>

@@ -1,22 +1,13 @@
 <?php
-//保护后台登录
-add_action('login_enqueue_scripts','login_protection');  
-function login_protection(){  
-    if($_GET['tang'] != 'ye')header('Location: http://www.yelook.com/');  
-}
 /*支持菜单*/
-if(function_exists('register_nav_menus')){
-register_nav_menus(
-array(
-'top-menu' => __( '顶部菜单' ),
-'index-menu' => __( '主菜单' ),
-)
-);
-}
+if (function_exists('add_theme_support')) {
+add_theme_support('nav-menus');    
+register_nav_menus( array( 'primary' => __( 'Primary Navigation', 'primary' ) ) );   
+} 
 if ( function_exists('add_theme_support') )
 add_theme_support('post-thumbnails');
-add_image_size('thumbnail', 160, 120, true);
-add_image_size('show', 80, 60, true);
+add_image_size('thumbnail', 160, 160, true);
+add_image_size('show', 50, 50, true);
 function post_thumbnail_src1($size){
 global $post;
 echo $size;
@@ -41,24 +32,35 @@ add_action('new_to_publish', 'autoset_featured');
 add_action('pending_to_publish', 'autoset_featured');
 add_action('future_to_publish', 'autoset_featured');
 remove_filter('the_content', 'wptexturize');
-//输出缩略图地址 From wpdaxue.com
-function post_thumbnail_src(){
+
+function post_thumbnail_bigsrc(){
     global $post;
 	if( $values = get_post_custom_values("show") ) {	//输出自定义域图片地址
 		$values = get_post_custom_values("show");
-		$post_thumbnail_src = $values [0];
+		$post_thumbnail_bigsrc = $values [0];
 	} elseif( has_post_thumbnail() ){    //如果有特色缩略图，则输出缩略图地址
-        $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
-		$post_thumbnail_src = $thumbnail_src [0];
-    } else {
-		$post_thumbnail_src = '';
-		ob_start();
-		ob_end_clean();
-		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-		$post_thumbnail_src = $matches [1] [0];
-if(empty($post_thumbnail_src)){return false;}	//获取该图片 src
+        $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail');
+		$post_thumbnail_bigsrc = $thumbnail_src [0];
+    } 
+if(empty($post_thumbnail_bigsrc)){
+	$random = mt_rand(1, 10);
+	echo get_bloginfo ( 'stylesheet_directory' );
+	echo '/img/random/'.$random.'.jpg';
 	};
-	echo $post_thumbnail_src;
+	echo $post_thumbnail_bigsrc;
+}
+function post_thumbnail_smallsrc(){
+    global $post;
+if( has_post_thumbnail() ){    //如果有特色缩略图，则输出缩略图地址
+        $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'show');
+		$post_thumbnail_smallsrc = $thumbnail_src [0];
+    } 
+if(empty($post_thumbnail_smallsrc)){
+	$random = mt_rand(1, 10);
+	echo get_bloginfo ( 'stylesheet_directory' );
+	echo '/img/randomshow/'.$random.'.jpg';
+	};
+	echo $post_thumbnail_smallsrc;
 }
 /*小工具*/
 if( function_exists('register_sidebar') ) {

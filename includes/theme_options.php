@@ -56,7 +56,7 @@ if ( $_REQUEST['reset'] ) echo '<div id="message" class="updated fade"><p><stron
 <div class="wrap rm_wrap">
 <div id="icon-themes" class="icon32"><br></div>
 <h2><?php echo $themename; ?>主题设置</h2>
-<p>本主题是有唐野编写</p> 
+<p>主题更新消息请留意“<a href="http://www.yelook.com" target="_blank">有野出没</a>”</p> 
 <?php
 function show_category() {
 	global $wpdb;
@@ -118,8 +118,9 @@ case "open":
 <?php break; }} ?>
 <span class="show_id">
 <p><strong>免责声明：</strong></p>
+<p>本主题文件夹结构中存放的随机图片仅供测试之用，请使用者自行更换，图片版权归图片作者所有，严禁非法利用图片进行商业行为。</p>
 <p>本主题系免费简化版，功能满足基本需求，DIY动手能力强的可以自行改造</p>
-<p>本主题版权所有<a href="http://www.yelook.com" target="_blank">有野出没</a>，本主题小部分功能系采用其他<strong>免费</strong>主题二次开发，因此不存在版权问题。</p>
+<p>本主题作者为<a href="http://www.yelook.com" target="_blank">有野出没</a>，本主题小部分功能系采用其他<strong>免费</strong>主题二次开发，原则上不存在版权问题，如果有疑问请与我联系。</p>
 <p>本主题是本人自用主题，应用网站"<a href="http://www.wphost.xyz" target="_blank">wphost.xyz</a>"。本着分享的精神免费分享，本人水平有限，主题功能上不可能尽善尽美，所以不喜勿喷。欢迎到我的个人博客<a href="http://www.yelook.com" target="_blank">有野出没</a>留下意见和建议。</p>
 <p>如果你喜欢这款主题，或者这款主题给你创造了价值，欢迎给我<a href="http://www.yelook.com/donate" target="_blank">捐助</a>，可以随时获得最新更新版本。</p>
 </span>

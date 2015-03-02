@@ -69,7 +69,7 @@
 	<span class="wplist"><a href="javascript::"><i class="fa fa-bars fa-2x"></i></a></span>
     <h1 class="logo"><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></h1>
 	<div class="search-click"><a href="javascript::"><i class="fa fa-search fa-2x"></i></a></div>
-	<?php wp_nav_menu(array('theme_location' => 'top-menu','menu'=>'top-menu','container_class' => 'topmenu','menu_class' =>'nav'));  ?>
+	<?php wp_nav_menu(array('theme_location' => 'primary','menu'=>'nav','container_class' => 'nav','menu_class' =>'nav'));  ?>
 	</div>
 	  <div class="searchbox">
 	<div class="wrap">

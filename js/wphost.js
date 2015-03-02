@@ -1,5 +1,7 @@
 $(document).ready(function(){
-
+$('.logo').jrumble({
+	rumbleSpeed: 0
+});
 $(".search-click").click(function(){$(".search-click").toggleClass("active");
 $(".searchbox").fadeToggle(300)});
 $(".wplist").click(function(){$(".nav").toggleClass("alternative");})
@@ -18,7 +20,11 @@ $('.aboutauthor').jrumble({
 $('.logo').jrumble({
 	rumbleEvent: 'hover'
 });
-
+if ($(document).scrollTop()==0){
+	$(".topheader").addClass('tou')
+}else{
+	$(".topheader").removeClass('tou')
+ };
 });
 $(document).scroll(function (){
 if ($(document).scrollTop()==0){
